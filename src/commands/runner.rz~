@@ -1,0 +1,21 @@
+use crate::utils::io::*;
+
+pub struct RunnerState {
+    pub history: Vec<String>,
+}
+
+pub fn run_command(command: &mut String, state: &mut RunnerState) {
+    state.history.push(command.clone());
+    let tokens = command.split(" ").collect::<Vec<_>>();
+
+    match tokens[0] {
+        "exit" => std::process::exit(0),
+        "history" => {
+            let mut acc = "".to_string();
+            for command in state.history.iter() {
+                acc += command;
+            }
+        }
+        _ => panic!("unknown command {}", tokens[0]),
+    }
+}

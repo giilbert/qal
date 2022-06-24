@@ -1,0 +1,10 @@
+use crate::RunnerState;
+
+fn history(tokens: &Vec<&str>, state: &mut RunnerState) {
+    let mut acc = "".to_string();
+    for command in state.history.iter() {
+        acc += command;
+        acc += " ";
+    }
+    output(&acc);
+}

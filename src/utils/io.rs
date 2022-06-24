@@ -19,6 +19,6 @@ pub fn input() -> String {
     return s;
 }
 
-pub fn output(text: String) {
+pub fn output(text: &String) {
     println!("{} {}", ">".green(), text)
 }
